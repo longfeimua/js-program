@@ -7,7 +7,7 @@
 	}
 */
 export function GetCookies() {
-	let cookies = document.cookie.split(";")
+	let cookies = document.cookie.split("; ")
 	if (!cookies) { return }
 	let cookieKeyValue = {}
 	for (let i = 0; i < cookies.length; i++) {
