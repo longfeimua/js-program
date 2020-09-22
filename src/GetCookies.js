@@ -1,5 +1,10 @@
 /*
-	获取页面cookie，返回 cookie键值对
+	获取页面cookie，返回 网页cookie键值对
+	{
+		key1:"value1"
+		key2:"value2"
+		key3:"value3"
+	}
 */
 export function GetCookies() {
 	let cookies = document.cookie.split(";")
