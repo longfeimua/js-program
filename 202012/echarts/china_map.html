@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./lib/echarts.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 900px;height:600px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        text: 'ECharts 入门示例'
+      },
+      tooltip: {},
+      visualMap: [
+        { // 第一个 visualMap 组件
+          type: 'continuous', // 定义为连续型 visualMap
+        },
+        { // 第二个 visualMap 组件
+          type: 'piecewise', // 定义为分段型 visualMap
+        }
+      ],
+      series: [{
+        type: 'map',
+        map:'china'
+      }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>

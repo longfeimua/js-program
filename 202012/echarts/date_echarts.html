@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./lib/echarts.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 900px;height:600px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    let data = [
+      {
+        "provinceName": "香港",
+        "currentConfirmedCount": 1213
+      },
+      {
+        "provinceName": "台湾",
+        "currentConfirmedCount": 133
+      },
+      {
+        "provinceName": "上海市",
+        "currentConfirmedCount": 89
+      },
+      {
+        "provinceName": "广东省",
+        "currentConfirmedCount": 44
+      },
+      {
+        "provinceName": "四川省",
+        "currentConfirmedCount": 39
+      },
+      {
+        "provinceName": "福建省",
+        "currentConfirmedCount": 27
+      },
+      {
+        "provinceName": "内蒙古自治区",
+        "currentConfirmedCount": 19
+      },
+      {
+        "provinceName": "陕西省",
+        "currentConfirmedCount": 14
+      },
+      {
+        "provinceName": "云南省",
+        "currentConfirmedCount": 14
+      },
+      {
+        "provinceName": "黑龙江省",
+        "currentConfirmedCount": 11
+      },
+      {
+        "provinceName": "山东省",
+        "currentConfirmedCount": 11
+      },
+      {
+        "provinceName": "北京市",
+        "currentConfirmedCount": 8
+      },
+      {
+        "provinceName": "江苏省",
+        "currentConfirmedCount": 8
+      },
+      {
+        "provinceName": "河南省",
+        "currentConfirmedCount": 7
+      },
+      {
+        "provinceName": "浙江省",
+        "currentConfirmedCount": 6
+      },
+      {
+        "provinceName": "天津市",
+        "currentConfirmedCount": 4
+      },
+      {
+        "provinceName": "山西省",
+        "currentConfirmedCount": 3
+      },
+      {
+        "provinceName": "广西壮族自治区",
+        "currentConfirmedCount": 1
+      },
+      {
+        "provinceName": "湖北省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "湖南省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "安徽省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "新疆维吾尔自治区",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "江西省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "重庆市",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "河北省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "辽宁省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "甘肃省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "海南省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "吉林省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "贵州省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "宁夏回族自治区",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "澳门",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "青海省",
+        "currentConfirmedCount": 0
+      },
+      {
+        "provinceName": "西藏自治区",
+        "currentConfirmedCount": 0
+      }
+    ]
+
+    var option = {
+      title: {
+        text: '疫情地图'
+      },
+      tooltip: {},
+      legend: {
+        data: ['当前感染人数']
+      },
+      xAxis: {
+        data: []
+      },
+      yAxis: {},
+      series: [{
+        name: '当前感染人数',
+        type: 'bar',
+        data: []
+      }]
+    };
+
+    data.forEach((element)=>{
+      option.xAxis.data.push(element.provinceName)
+      option.series[0].data.push(element.currentConfirmedCount)
+    })
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>

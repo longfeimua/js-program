@@ -1,16 +1,32 @@
 let fs = require('fs');
 let path = require('path');
 let request = require('requests');
-const cheerio = require('cheerio')
+const cheerio = require('cheerio'); // 处理网页文件
 
 
-request('https://www.jsdaima.com/Uploads/js/201803/1522376449/css/demo.css').on('data', function (chunk) {
-  // fs.writeFile(path.resolve(__dirname, 'demo.css'), chunk, () => {
-  //   console.log('OK');
-  // })
+request('https://ncov.dxy.cn/ncovh5/view/pneumonia?from=timeline&isappinstalled=0').on('data', function (chunk) {
 
+  const $ = cheerio.load(chunk);
+  let window = {};
 
-  const $ = cheerio.load(chunk)
+  eval($('#getAreaStat').html());
+
+  let provinceData = []
+  function parseJSON(jsonObj) {
+    /* 保留到一级数据 */
+    jsonObj.forEach(element => {
+      provinceData.push({
+        provinceName: element.provinceName,
+        currentConfirmedCount: element.currentConfirmedCount
+      })
+    });
+  }
+
+  parseJSON(window.getAreaStat)
+
+  fs.writeFile(path.resolve(__dirname, 'demo.json'), JSON.stringify(provinceData), () => {
+    console.log('OK');
+  })
 
 
 })
